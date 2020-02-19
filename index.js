@@ -8,14 +8,16 @@ bot.on('ready', () => {
 })
 
 bot.on('message', msg =>{
-    let args = msg.content.split(" ");
-    switch(args[0]){
-        case '$help':
-            help = new Discord.RichEmbed()
-            .setColor(0xff0000)
-            .addField('I dont do anything yet but...', `I will be a game where you will have to build an army and conquer the world for your empire`)
-            msg.channel.send(help)
-        break;
+    if(msg.content.substring(0,Pre.length) == Pre){
+        let args = msg.content.substring(Pre.length).split(" ");
+        switch(args[0]){
+            case 'help':
+                help = new Discord.RichEmbed()
+                .setColor(0xff0000)
+                .addField('I dont do anything yet but...', `I will be a game where you will have to build an army and conquer the world for your empire`)
+                msg.channel.send(help)
+            break;
+        }
     }
 })
 
